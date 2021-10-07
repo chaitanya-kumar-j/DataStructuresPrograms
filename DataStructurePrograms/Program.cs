@@ -1,12 +1,15 @@
 ﻿using System;
+using DataStructuresPractice;
 
 namespace DataStructurePrograms
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string inputFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\InputFile.txt";
+            string outputFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\OutputFile.txt";
+            new UnorderedList().UnorderListOperations(inputFilePath,outputFilePath);
         }
     }
 }
