@@ -1,18 +1,18 @@
-﻿using System;
+﻿using DataStructuresPractice;
+using System;
 using System.Collections.Generic;
-using DataStructuresPractice;
 using System.IO;
 using System.Text;
 
 namespace DataStructurePrograms
 {
-    public class UnorderedList
+    public class OderedList
     {
-        public void UnorderListOperations(string inputFilePath, string outputFilePath)
+        public void OrderedListOperations(string inputFilePath, string outputFilePath)
         {
             string[] wordsList = File.ReadAllText(inputFilePath).Split(",");
             MyLinkedList<string> listOfWords = new MyLinkedList<string>();
-            foreach(string word in wordsList)
+            foreach (string word in wordsList)
             {
                 listOfWords.AddNode(word);
             }
@@ -43,13 +43,14 @@ namespace DataStructurePrograms
                         break;
                 }
             }
-            List<string> outputList = listOfWords.LinkedListToList();
+            MyLinkedList<string> sortedList = listOfWords.SortList();
+            List<string> outputList = sortedList.LinkedListToList();
             string a = "";
             foreach (string word in outputList)
             {
                 a = a + "," + word;
             }
-            string output = a.Remove(0, 1);
+            string output = a.Remove(0,1);
             File.WriteAllText(outputFilePath, output);
         }
     }

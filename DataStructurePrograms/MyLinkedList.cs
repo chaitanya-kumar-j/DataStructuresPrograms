@@ -119,9 +119,16 @@ namespace DataStructuresPractice
             int position = this.Search(oldValue);
             this.AddInBetween(newValue, position+1);
         }
-        public void DeleteInBetween()
+        public MyLinkedList<T> SortList()
         {
-
+            List<T> outputList = this.LinkedListToList();
+            outputList.Sort();
+            MyLinkedList<T> sortedList = new MyLinkedList<T>();
+            foreach (T element in outputList)
+            {
+                sortedList.AddNode(element);
+            }
+            return sortedList;
         }
         public int Size()
         {
