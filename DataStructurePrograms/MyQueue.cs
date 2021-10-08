@@ -4,19 +4,19 @@ using System.Text;
 
 namespace DataStructuresPractice
 {
-    public class Queue
+    public class MyQueue<T>
     {
-        public Node head = null;
-        public void Enqueue(int data)
+        public Node<T> head = null;
+        public void Enqueue(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
             if (head == null)
             {
                 head = node;
             }
             else
             {
-                Node temp = head;
+                Node<T> temp = head;
                 while (temp.nextNode != null)
                 {
                     temp = temp.nextNode;
@@ -26,7 +26,7 @@ namespace DataStructuresPractice
         }
         public void DisplayQueue()
         {
-            Node temp = this.head;
+            Node<T> temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("Queue is Empty");
@@ -34,7 +34,7 @@ namespace DataStructuresPractice
             }
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.WriteLine(temp.data + " ");
                 temp = temp.nextNode;
             }
         }
