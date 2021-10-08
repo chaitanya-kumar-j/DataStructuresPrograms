@@ -1,4 +1,5 @@
 ﻿using System;
+using DataStructurePrograms.Deque;
 using DataStructuresPractice;
 
 namespace DataStructurePrograms
@@ -13,8 +14,9 @@ namespace DataStructurePrograms
             bool isRun = true;
             while (isRun)
             {
-                Console.WriteLine("Select and enter program number:" +
-                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank cash counter)");
+                Console.WriteLine("\nSelect and enter program number:" +
+                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank cash counter," +
+                    "5. Palindrome check by deque)");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -61,6 +63,9 @@ namespace DataStructurePrograms
                             }
                             
                         }
+                        break;
+                    case 5:
+                        new PalindromCheckByDeque().isPalindrome();                        
                         break;
                     default:
                         isRun = !isRun;
