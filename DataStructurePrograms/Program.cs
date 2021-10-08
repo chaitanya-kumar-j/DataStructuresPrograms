@@ -37,29 +37,29 @@ namespace DataStructurePrograms
                             string customer = customerQueue.head.data;
                             string customerName = customer.Split("-")[0];
                             int customerBalance = Convert.ToInt32(customer.Split("-")[1]);
-                            Console.WriteLine($"{customerName},\nSelect an option of transaction(1. Withdraw, 2. Deposit, 3. Check balance): ");
-                            int transactionOption = Convert.ToInt32(Console.ReadLine());
-                            while(transactionOption<0 || transactionOption > 3)
+                            bool isDoNextTransaction = true;
+                            while (isDoNextTransaction)
                             {
-                                Console.WriteLine("Select correct transaction option.");
-                                Console.WriteLine($"{customerName},\nSelect an option of transaction(1. Withdraw, 2. Deposit, 3. Check balance): ");
-                                transactionOption = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine($"{customerName},\nSelect an option of transaction(1. Withdraw, 2. Deposit, 3. Check balance, 4. Exit): ");
+                                int transactionOption = Convert.ToInt32(Console.ReadLine());
+                                switch (transactionOption)
+                                {
+                                    case 1:
+                                        cashCounter.WithDraw(customerName, customerBalance);
+                                        break;
+                                    case 2:
+                                        cashCounter.Deposit(customerName, customerBalance);
+                                        break;
+                                    case 3:
+                                        cashCounter.BalanceCheck(customerName, customerBalance);
+                                        break;
+                                    default:
+                                        customerQueue.Dequeue();
+                                        isDoNextTransaction = !isDoNextTransaction;
+                                        break;
+                                }
                             }
-                            switch (transactionOption)
-                            {
-                                case 1:
-                                    cashCounter.WithDraw(customerName, customerBalance);
-                                    customerQueue.Dequeue();
-                                    break;
-                                case 2:
-                                    cashCounter.Deposit(customerName, customerBalance);
-                                    customerQueue.Dequeue();
-                                    break;
-                                case 3:
-                                    cashCounter.BalanceCheck(customerName, customerBalance);
-                                    customerQueue.Dequeue();
-                                    break;
-                            }
+                            
                         }
                         break;
                     default:
