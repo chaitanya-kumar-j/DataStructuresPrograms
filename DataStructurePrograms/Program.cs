@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using DataStructurePrograms.Deque;
 using DataStructuresPractice;
 
@@ -11,6 +12,7 @@ namespace DataStructurePrograms
             string inputFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\InputFile.txt";
             string outputFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\OutputFile.txt";
             string equationFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\Equation.txt";
+            string hashingNumbersFilePath = @"G:\BridgeLabz\DataStructuresPrograms\DataStructurePrograms\Hashing\HashingInputNumbers.txt";
             bool isRun = true;
             while (isRun)
             {
@@ -66,6 +68,10 @@ namespace DataStructurePrograms
                         break;
                     case 5:
                         new PalindromCheckByDeque().isPalindrome();                        
+                        break;
+                    case 6:
+                        int[] numbersList = Array.ConvertAll(File.ReadAllText(hashingNumbersFilePath).Split(","),int.Parse);
+                        new HashingFunction().Hashing(numbersList);
                         break;
                     default:
                         isRun = !isRun;
