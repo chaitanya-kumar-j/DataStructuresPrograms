@@ -18,7 +18,7 @@ namespace DataStructurePrograms
             {
                 Console.WriteLine("\nSelect and enter program number:" +
                     "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank cash counter," +
-                    "5. Palindrome check by deque)");
+                    "\n5. Palindrome check by deque, 6. Hashing function)");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -71,6 +71,7 @@ namespace DataStructurePrograms
                         break;
                     case 6:
                         int[] numbersList = Array.ConvertAll(File.ReadAllText(hashingNumbersFilePath).Split(","),int.Parse);
+                        // Array.Sort(numbersList);
                         new HashingFunction().Hashing(numbersList);
                         break;
                     default:

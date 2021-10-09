@@ -8,6 +8,11 @@ namespace DataStructurePrograms
     {
         public void Hashing(int[] inputNumbers)
         {
+            Console.WriteLine("List of numbers passing are: ");
+            foreach (int number in inputNumbers)
+            {
+                Console.Write(number+" ");
+            }
             int slotSize = 10;
             int hashingNumber = 11;
             List<MyLinkedList<int>> mySlotList = new List<MyLinkedList<int>>();
@@ -19,7 +24,17 @@ namespace DataStructurePrograms
                 {
                     HashingUpdate(number, hashingNumber, mySlotList);
                 }
-                mySlotList[hashValue].AddNode(number);
+                else
+                {
+                    if (mySlotList[hashValue].Search(number) >= 0)
+                    {
+                        mySlotList[hashValue].DeleteANumber(number);
+                    }
+                    else
+                    {
+                        mySlotList[hashValue].AddNode(number);
+                    }
+                }
             }
             for(int i = 0; i<mySlotList.Count;i++)
             {

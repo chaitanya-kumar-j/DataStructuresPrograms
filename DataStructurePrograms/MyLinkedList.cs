@@ -102,17 +102,25 @@ namespace DataStructuresPractice
         {
             if (head == null)
             {
-                Console.WriteLine("list is Empty");
+                // Console.WriteLine("list is Empty");
                 return -1;
             }
-            int count = 0;
+            int count = -1;
             Node<T> temp = this.head;
-            while (!temp.data.Equals(value))
+            while (temp!=null)
             {
-                count++;
-                temp = temp.nextNode;
+                if (temp.data.Equals(value))
+                {
+                    count++;
+                    return count;
+                }
+                else
+                {
+                    count++;
+                    temp = temp.nextNode;
+                }
             }
-            return count;
+            return -1;
         }
         public void AddAfterNumber(T oldValue, T newValue)
         {
